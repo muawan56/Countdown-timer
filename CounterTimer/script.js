@@ -17,14 +17,18 @@ function countdown() {
     const hours = Math.floor(seconds / 3600) % 24;
     const days = Math.floor(seconds / (3600 * 24));
 
-    daysElement.innerHTML = days;
-    hoursElement.innerHTML = hours;
-    minutesElement.innerHTML = minutes;
-    secondsElement.innerHTML = remainingSeconds;
+    daysElement.innerHTML = addZero(days);
+    hoursElement.innerHTML = addZero(hours);
+    minutesElement.innerHTML = addZero(minutes);
+    secondsElement.innerHTML = addZero(remainingSeconds);
   } else {
     document.getElementById("timerComplete").innerHTML = "Timer has completed";
     clearInterval(timer);
   }
+}
+
+function addZero(time) {
+  return time < 10 ? (`0${time}`) : time;
 }
 
 // initial call
